@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class WebConfiguration {
+public class JacksonProviderConfiguration {
 
     @Bean
     public JacksonJsonProvider getJsonProvider() {
@@ -18,7 +18,6 @@ public class WebConfiguration {
         objectMapper.registerModule(new JavaTimeModule());
         objectMapper.registerModule(new Jdk8Module());
         objectMapper.registerModule(new Jdk8Module());
-//        objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.UPPER_CAMEL_CASE);
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         return new JacksonJsonProvider(objectMapper);
     }
